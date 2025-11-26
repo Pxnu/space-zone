@@ -1,0 +1,90 @@
+/* 1. ตั้งค่าพื้นฐานและซ่อน Scroll bar ของหน้าเว็บ */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* คำสั่งนี้จะซ่อน Scroll bar ด้านข้าง */
+}
+
+/* 2. กล่องคลุมวิดีโอ ให้ติดหนึบเต็มจอ */
+.videos-bg-container {
+    position: fixed; /* ยึดติดกับหน้าจอ ไม่เลื่อนตาม */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* ดันไปอยู่หลังสุด */
+    overflow: hidden; /* ตัดส่วนเกินของวิดีโอทิ้ง */
+}
+
+/* 3. ตัววิดีโอ ให้ขยายเต็มพื้นที่โดยไม่เสียสัดส่วน */
+.videos-bg-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* จัดกึ่งกลาง */
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover; /* สำคัญ! ทำให้วิดีโอเต็มจอโดยไม่บีบรูป */
+}
+
+/* 4. จัดการ Overlay (เลเยอร์สีดำทับวิดีโอ) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* สีดำจางๆ 40% ให้ตัวหนังสืออ่านง่ายขึ้น */
+    z-index: 0;
+}
+
+/* navgation bar section */
+/* 5. ปรับ Nav bar ให้ลอยอยู่เหนือวิดีโอ */
+nav {
+    position: relative;
+    z-index: 10; /* ต้องมากกว่า video container */
+    /* ใส่สีตัวอักษรเพื่อให้เห็นชัดบนพื้นหลังมืด */
+    color: white; 
+}
+
+nav a {
+    color: white; /* เปลี่ยนสีลิงก์เป็นขาว */
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+    height: 50px; /* กำหนดความสูงให้พอดีกับ Navbar */
+    width: auto;  /* ให้ความกว้างปรับตามสัดส่วนอัตโนมัติ */
+    display: block;
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  margin: 0 1rem;
+}
+
+li a {
+  font-weight: 500;
+}
