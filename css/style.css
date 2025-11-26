@@ -69,6 +69,12 @@ nav .container ul li a  {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hero .title button:hover {
+  transform: scale(1.1);               /* ขยายใหญ่ขึ้น 1.1 เท่า (10%) */
+  background-color: rgba(255, 255, 255, 0.3); /* (แถม) เปลี่ยนสีพื้นหลังให้สว่างขึ้นนิดนึงตอนชี้ */
 }
 
 /* hero-section-end */
@@ -151,4 +157,32 @@ nav .container ul li a  {
 
 .planet .card-container:hover {
   transform: translateY(-10px);
+}
+
+/* --- ส่วนของ Video Background --- */
+.videos-bg-container {
+  position: fixed;      /* สั่งให้ติดหนึบอยู่กับหน้าจอ ไม่เลื่อนตาม */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;          /* สำคัญ! สั่งให้เลเยอร์ไปอยู่หลังสุด */
+  overflow: hidden;
+}
+
+.videos-bg-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* ขยายวิดีโอให้เต็มจอโดยสัดส่วนไม่เพี้ยน */
+}
+
+/* เลเยอร์สีดำจางๆ ทับวิดีโอเพื่อให้ตัวหนังสืออ่านง่าย (ถ้ามืดไปปรับเลข 0.5 ให้น้อยลงได้) */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); 
+  z-index: 0;
 }
