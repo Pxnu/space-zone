@@ -11,22 +11,22 @@
     <!-- video-background -->
     <div class="videos-bg-container">
         <video autoplay muted loop playsinline poster="/img/1.mp4">
-            <source src="/video/2.mp4" type="video/mp4">
+            <source src="/video/1.mp4" type="video/mp4">
         </video>
 
         <div class="overlay"></div>
     </div>
 
     <!-- nav section -->
-    <nav>
+    <nav id="home">
         <div class="container">
             <div class="logo">
                 <a href="#"><img src="/logo/logo.png" alt="logo"></a>
             </div>
             <ul>
-                <li><a href="#">Home | </a></li>
+                <li><a href="#home">Home | </a></li>
                 <li><a href="#about">About | </a></li>
-                <li><a href="#">Planet | </a></li>
+                <li><a href="#planet">Planet | </a></li>
             </ul>
         </div>
     </nav>
@@ -37,7 +37,7 @@
             <div class="title">
                 <h1>Welcome Sir.</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque expedita sit architecto nemo, ipsam provident, explicabo porro dolorem consequatur exercitationem natus quod vitae velit maiores, totam delectus reiciendis nesciunt vel. Alias totam velit quo eveniet a nam aut omnis odit.</p>
-                <button type="button">See About us</button>
+                <button type="button" onclick="scrollToAbout()">See About us</button>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
      </div>
 
      <!-- planet-section -->
-      <div class="planet">
+      <div id="planet" class="planet">
         <div class="container">
             <div class="title">
                 <h2>Planet</h2>
@@ -126,5 +126,7 @@
             </div>
         </div>
       </div>
+      
+      <script src="/js/script.js"></script>
 </body>
 </html>

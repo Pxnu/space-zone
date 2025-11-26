@@ -7,6 +7,10 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: black;
 }
@@ -185,4 +189,63 @@ nav .container ul li a  {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3); 
   z-index: 0;
+}
+
+/* --- Responsive Design (สำหรับมือถือและแท็บเล็ต) --- */
+@media screen and (max-width: 768px) {
+  
+  /* 1. ปรับ Navigation ให้ Logo กับ Menu เรียงลงมาเป็นแนวตั้ง */
+  nav .container {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  nav .container ul {
+    justify-content: center;
+    padding: 0;
+  }
+  
+  nav .container ul li {
+    margin: 0 0.5rem; /* ลดระยะห่างระหว่างเมนูลง */
+  }
+
+  /* 2. ปรับ Hero Section */
+  .hero .container {
+    height: auto;       /* ปล่อยความสูงตามเนื้อหา ไม่ล็อค 700px */
+    padding: 4rem 1rem; /* เพิ่มพื้นที่หายใจบนล่าง */
+  }
+
+  .hero .title {
+    width: 100%;        /* แก้จาก 500px เป็นเต็มจอ */
+    padding: 0 1rem;    /* กันข้อความชิดขอบจอเกินไป */
+  }
+
+  /* 3. ปรับ About Section (สำคัญมาก! ของเดิมล็อคไว้ 1000px จะล้นจอ) */
+  .about p {
+    width: 100%;        /* แก้ให้ยืดหดตามจอ */
+    text-align: justify; /* จัดย่อหน้าให้อ่านง่ายขึ้นบนมือถือ */
+    padding: 0 1rem;
+  }
+
+  /* 4. ปรับ Planet Section (ตารางการ์ด) */
+  .planet .card {
+    grid-template-columns: 1fr; /* เปลี่ยนจาก 3 คอลัมน์ เป็น 1 คอลัมน์เรียงลงมา */
+    justify-items: center;      /* จัดการ์ดให้อยู่ตรงกลาง */
+    gap: 1.5rem;
+  }
+
+  /* ปรับขนาดการ์ดให้พอดีมือถือ */
+  .planet .card-container {
+    width: 100%;           
+    max-width: 350px;      /* ไม่ให้การ์ดใหญ่เกินไป */
+    height: auto;          /* ความสูงยืดหดตามเนื้อหา */
+    padding: 0;
+  }
+
+  /* ปรับรูปในการ์ดให้เต็มกรอบ */
+  .planet .card-container .content a img {
+    width: 100%;
+    height: auto;         /* หรือกำหนด height เป็น px ถ้าอยากให้เท่ากันเป๊ะๆ */
+  }
 }
